@@ -4,106 +4,96 @@
 
 <head>
 
-  <title>React Page</title>
+    <meta charset="UTF-8">
 
-  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Merger</title>
 
 </head>
 
 <body>
 
- 
+    <h1>Ravipati.Venkata Lahari builds a merger</h1>
 
-  <h2>Ravipati.Venkata Lahari Speed Check</h2>
+    <input type="text" class="form-control" id="inputElement">
 
-  <div id="target">Your Time</div>
+    <div class="flex-container" id="target">
 
-  <div id="counter">Count</div>
+        <div class="merger">Row item1</div>
 
-  <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
+        <div class="merger">Row item2</div>
 
-  <button type="button" onclick="recordTime()">React</button>
+        <div class="merger">Row item3</div>
 
- 
+    </div>
 
-  <script>
+    <p>Press the button to create an element of type div and then add it to the container</p>
 
- 
+    <button onclick="addEnd()">Add End</button>
 
-    var reactTime=undefined;
+    <button onclick="addFront()">Add Front</button>
 
-    function recordTime()
+    <button onclick="remove()">Remove</button>
+
+</body>
+
+<script>
+
+    function addEnd()
 
     {
 
-        reactTime=Date.now();
+        let element=document.createElement("div");
 
-        console.log(reactTime);
+        element.innerHTML=document.getElementById("inputElement").value;
+
+        element.style.color="red";
+
+        element.className="merger";
+
+        let container=document.getElementById('target');
+
+        container.appendChild(element);
 
     }
 
-    function startTime()
+    function remove()
 
     {
 
-        var i=0;
+        let queueItems=document.getElementsByClassName("merger");
 
-        while(i<=8)
+        let len_ele=queueItems.length;
+
+        if(len_ele>0)
 
         {
 
-            setTimeout(() =>
-
-            {
-
-                document.getElementById("counter").innerHTML="Count:"+i;
-
-            },(8-i)*1000);
-
-            i++;
+            queueItems[len_ele-1].remove();
 
         }
 
-        setTimeout(() =>
+    }
 
-        {
+    function addFront()
 
-            if(reactTime==undefined)
+    {
 
-            {
+        let element=document.createElement("div");
 
-                document.getElementById("target").innerHTML="Too Slow";
+        element.innerHTML=document.getElementById("imputElement").value;
 
-            }
+        element.style.color="red";
 
-            else
+        element.className="merger";
 
-            {
+        let container=document.getElementById("target");
 
-                var endTime=Date.now();
-
-                document.getElementById("target").innerHTML="Time Was"+(endTime-reactTime);
-
-            }
-
-        },8000);
+        container.insertBefore(element,container.firstChild);
 
     }
 
-  </script>
-
- 
-
-</body>
+</script>
 
 </html>
