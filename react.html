@@ -31,7 +31,32 @@
         console.log(reactTime);
 
     }
-    </script>
+    function startTime()
+    {
+        var i=0;
+        while(i<=8)
+        {
+            setTimeout(() =>
+            {
+                document.getElementById("counter").innerHTML="Count: "+i;
+            },(8-i)*1000);
+            i++;
+        }
+        setTimeout(() =>
+        {
+            if(reactTime==undefined)
+            {
+                document.getElementById("target").innerHTML="Too Slow";
+            }
+            else
+            {
+                var endTime=Date.now();
+                document.getElementById("target").innerHTML="Time Was  "+(endTime-reactTime);
+            }
+        },8000);
+    }
+    
+  </script>
 
 
 </body>
