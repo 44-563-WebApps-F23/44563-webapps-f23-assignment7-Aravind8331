@@ -46,6 +46,8 @@
         <button onclick="remove()">Remove</button>
 	
 <script>
+     let queueItems=[];
+    let removedItem;
 	function addEnd(){
 		/* make the div and its text */
 		let element = document.createElement("div")
@@ -77,7 +79,6 @@ element.className="merger";
 let container=document.getElementById("target");
 container.insertBefore(element,container.firstChild);
 }
-
 </script>
 </body>
 </html>	
